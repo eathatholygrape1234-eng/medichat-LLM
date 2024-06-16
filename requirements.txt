@@ -3,3 +3,5 @@ sentence-transformers==2.2.2
 pinecone-client
 langchain
 flask
+python-dotenv
+-e .

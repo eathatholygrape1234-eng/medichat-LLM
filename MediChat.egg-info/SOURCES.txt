@@ -1,0 +1,8 @@
+setup.py
+MediChat.egg-info/PKG-INFO
+MediChat.egg-info/SOURCES.txt
+MediChat.egg-info/dependency_links.txt
+MediChat.egg-info/top_level.txt
+src/__init__.py
+src/helper.py
+src/prompt.py
