@@ -15,4 +15,5 @@ pc = Pinecone(api_key=PINECONE_API_KEY)
 index_name="medichat"
 index = pc.Index("medichat")
 index.describe_index_stats() 
+
 docsearch=PineconeVectorStore.from_texts([t.page_content for t in text_chunks], embeddings, index_name=index_name)
