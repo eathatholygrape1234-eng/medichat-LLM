@@ -10,3 +10,4 @@
 127.0.0.1 - - [16/Jun/2024 22:59:15] "POST /get HTTP/1.1" 200 -
 c:\Users\Lenovo\anaconda3\envs\medichat\lib\site-packages\transformers\generation\configuration_utils.py:515: UserWarning: `do_sample` is set to `False`. However, `temperature` is set to `0.7` -- this flag is only used in sample-based generation modes. You should set `do_sample=True` or unset `temperature`.
   warnings.warn(
+llama-2-7b-chat.ggmlv3.q4_0

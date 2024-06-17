@@ -43,13 +43,13 @@ docsearch=PineconeVectorStore.from_existing_index(index_name, embeddings)
 vectordb = PineconeStore(index, embeddings,"text")
 llm=CTransformers(model="model/llama-2-7b-chat.ggmlv3.q4_0.bin",
                   model_type="llama",
-                  config={'max_new_tokens':512,
-                          'temperature':0.8})
+                  config={'max_new_tokens':150,
+                          'temperature':0.7})
 # Define the system prompt to guide the model's behavior
 system_prompt = (
     "You are a medical professional and act like one. Use the following pieces of information to answer the user's question accurately. "
     "If you don't know the answer, just say that you don't know. Do not add any details by yourself. "
-    "Context: {context}"
+    "Context: {context}? "
 )
 
 # Create the prompt template with the system and human message structure
