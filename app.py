@@ -30,7 +30,7 @@ load_dotenv()
 
 PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
 OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
-openai.api_key = "sk-proj-lzjG4IzhPCJXvp355pLLT3BlbkFJwp48UZo1vxYaMzuFhLgn"
+openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 embeddings = download_hugging_face_embeddings()
 index_name = "medichat"
@@ -79,7 +79,7 @@ import requests
 import base64
 from flask import jsonify, request, render_template
 from openai import OpenAI
-os.environ["OPENAI_API_KEY"] = "sk-proj-lzjG4IzhPCJXvp355pLLT3BlbkFJwp48UZo1vxYaMzuFhLgn"
+
 # Initialize the OpenAI client (make sure to set your API key as an environment variable)
 client = OpenAI()
 
