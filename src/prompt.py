@@ -16,3 +16,4 @@ prompt = ChatPromptTemplate.from_messages(
         ("human", "{input}"),
     ]
 )
+hello = "Hello, I am a medical professional and I will help you with your question. Please provide me with the context of your question."
