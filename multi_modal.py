@@ -19,11 +19,19 @@ import langchain.chains
 from dotenv import load_dotenv
 from src.prompt import *
 import os
+import openai
+import base64
+from PIL import Image
+import io
+
 app = Flask(__name__)
 
 load_dotenv()
 
 PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+openai.api_key = OPENAI_API_KEY
+
 embeddings = download_hugging_face_embeddings()
 index_name = "medichat"
 
@@ -61,26 +69,70 @@ question_answer_chain = create_stuff_documents_chain(llm, prompt)
 # Create the retrieval chain that integrates the retriever and the question-answer chain
 chain = create_retrieval_chain(retriever, question_answer_chain)
 
+# Define the image analysis prompt
+image_analysis_prompt = (
+    "You are a medical practitioner and an expert in analyzing medical-related images working for a very reputed hospital. "
+    "You will be provided with images and you need to identify the anomalies, any disease or health issues. You need to generate the result in a detailed manner. "
+    "Write all the findings, next steps, recommendations, etc. You only need to respond if the image is related to a human body and health issues. "
+    "You must have to answer but also write a disclaimer saying that 'Consult with a Doctor before making any decisions'. "
+    "Remember, if certain aspects are not clear from the image, it's okay to state 'Unable to determine based on the provided image.' "
+    "Now analyze the image and answer the above questions in the same structured manner defined above."
+)
+
+def call_gpt4_model_for_analysis(image_data):
+    # Convert the image to base64
+    base64_image = base64.b64encode(image_data).decode('utf-8')
+    
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {
+                    "type": "text", "text": image_analysis_prompt
+                },
+                {
+                    "type": "image_url",
+                    "image_url": {
+                        "url": f"data:image/jpeg;base64,{base64_image}",
+                        "detail": "high"
+                    }
+                }
+            ]
+        }
+    ]
+
+    response = openai.ChatCompletion.create(
+        model="gpt-4-vision-preview",
+        messages=messages,
+        max_tokens=1500
+    )
+
+    return response.choices[0].message.content
 
 @app.route("/")
 def index():
     return render_template('chat.html')
 
-
-
 @app.route("/get", methods=["GET", "POST"])
 def chat():
     try:
-        msg = request.form["msg"]
-        # Invoke the chain with the input message
-        result = chain.invoke({"input": msg})
-        print(result["answer"])
+        if 'file' in request.files:
+            file = request.files['file']
+            image_data = file.read()
+            print(response)
+            response = call_gpt4_model_for_analysis(image_data)
+           
+        else:
+            msg = request.form["msg"]
+            # Invoke the chain with the input message
+            result = chain.invoke({"input": msg})
+            response = result["answer"]
+        
         # Return the result as a JSON response
-        return jsonify({"response": result["answer"]})
+        return jsonify({"response": response})
     except Exception as e:
         # Return the error as a JSON response
         return jsonify({"error": str(e)})
 
-
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port= 8080, debug= True)
+    app.run(host="0.0.0.0", port=8080, debug=True)
