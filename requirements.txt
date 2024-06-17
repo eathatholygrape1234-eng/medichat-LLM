@@ -114,4 +114,4 @@ wcwidth @ file:///home/conda/feedstock_root/build_artifacts/wcwidth_170473120541
 Werkzeug==3.0.3
 yarl==1.9.4
 zipp @ file:///home/conda/feedstock_root/build_artifacts/zipp_1718013267051/work
--e .
+ .
