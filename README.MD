@@ -7,8 +7,11 @@ MediChat-LLM is an advanced chatbot designed specifically for medical profession
 ## Project Repository
 
 Project repository link: [GitHub - dhairya8luthra/medichat-LLM](https://github.com/dhairya8luthra/medichat-LLM)
-###Screenshots
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/master/1.png?raw=true) 
+
+## Screenshots
+
+![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/1.png?raw=true) 
+
 ## Setup Instructions
 
 ### Prerequisites
