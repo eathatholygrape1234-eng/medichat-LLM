@@ -11,6 +11,8 @@ Project repository link: [GitHub - dhairya8luthra/medichat-LLM](https://github.c
 ## Screenshots
 
 ![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/2.png?raw=true) 
+![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/3.png?raw=true)
+![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/4.png?raw=true)
 
 ## Setup Instructions
 
