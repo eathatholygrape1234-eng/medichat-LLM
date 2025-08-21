@@ -6,18 +6,6 @@ MediChat-LLM is an advanced chatbot designed specifically for medical profession
 
 ## Project Repository
 
-Project repository link: [GitHub - dhairya8luthra/medichat-LLM](https://github.com/dhairya8luthra/medichat-LLM)
-
-## Screenshots
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/4.png?raw=true)
-## 
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/5.png?raw=true)
-## 
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/6.png?raw=true)
-## 
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/2.png?raw=true)
-## 
-![alt text](https://github.com/dhairya8luthra/medichat-LLM/blob/main/screenshots/3.png?raw=true)
 
 ## Setup Instructions
 
@@ -30,10 +18,6 @@ Project repository link: [GitHub - dhairya8luthra/medichat-LLM](https://github.c
 
 1. **Clone the Repository**
 
-    ```sh
-    git clone https://github.com/dhairya8luthra/medichat-LLM.git
-    cd medichat-LLM
-    ```
 
 2. **Create and Activate a Conda Environment**
 
